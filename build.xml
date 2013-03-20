@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="xar" name="graph2svg">
-    <property name="project.app" value="graph2svg"/>
+<project default="xar" name="quality-tree">
+    <property name="project.app" value="quality-tree"/>
     <property name="project.version" value="0.1"/>
     <property name="build.dir" value="build"/>
     <target name="xar">
