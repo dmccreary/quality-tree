@@ -1,0 +1,12 @@
+<meta xmlns="http://exist-db.org/xquery/repo">
+    <description>A tool for building quality tree diagrams</description>
+    <author>Dan McCreary</author>
+    <website>https://github.com/dmccreary/quality-tree</website>
+    <status>alpha</status>
+    <license>GNU-LGPL</license>
+    <copyright>true</copyright>
+    <type>application</type>
+    <target>quality-tree</target>
+    <prepare/>
+    <finish/>
+</meta>
