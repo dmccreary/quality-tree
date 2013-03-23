@@ -1,16 +1,33 @@
-declare namespace gs = "https://github.com/dmccreary/graph2svg";
-declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes";
+import module namespace style = "http://danmccreary.com/style" at "../modules/style.xqm";
+import module namespace qt = "http://danmccreary.com/quality-tree" at "../modules/quality-tree.xqm";
 
-<html>
-  <head>
-     <title>Quality Tree</title>
-  </head>
-  <body>
-     <p>This application creates and manages quality tree diagrams used in the architectural tradeoff modeling process.
-     These structures are sometimes referred to as a utility tree.</p>
-     <a href="views/list-quality-trees.xq">List Quality Trees</a>
-     
-    
-     <p>Please contact Dan McCreary (dan@danmccreary.com) if you have any feedback on this app.</p>
-  </body>
-</html>
+let $title := 'List Quality Trees'
+
+let $trees := $qt:all-trees
+
+let $content :=
+<div class="content">
+   <table>
+      <thead>
+         <tr>
+            <th>Name</th>
+            <th>Last Modified</th>
+         </tr>
+      </thead>
+      <tbody>
+        {for $tree in $trees
+         let $id := $tree/id/text()
+         let $document-name := util:document-name($tree)
+         let $last-modified := xmldb:last-modified($style:db-path-to-app-data, $document-name)
+         return
+            <tr>
+               <th><a href="view-tree.xq?id={$id}">{$tree/project-name/text()}</a></th>
+               <th><a href="view-tree-svg.xq?id={$id}">SVG</a></th>
+               <td>{$last-modified}</td>
+            </tr>
+         }
+       </tbody>
+    </table>
+</div>
+
+return style:assemble-page($title, $content)

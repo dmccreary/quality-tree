@@ -1,0 +1,21 @@
+<code-table>
+    <name>my-code</name>
+    <description>This is a description of my code items and values.</description>
+    <items>
+        <item>
+            <label>Low</label>
+            <value>low</value>
+            <definition>Low importance or difficulty.</definition>
+        </item>
+        <item>
+            <label>Medium</label>
+            <value>medium</value>
+            <definition>Medium importance or difficulty.</definition>
+        </item>
+        <item>
+            <label>High</label>
+            <value>high</value>
+            <definition>Hi importance or difficulty.</definition>
+        </item>
+    </items>
+</code-table>

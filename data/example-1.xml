@@ -1,6 +1,6 @@
 <quality-tree>
     <id>1</id>
-    <project-name>Example 1</project-name>
+    <project-name>Sample Project 1</project-name>
     <author>
         <personname>
             <firstname>Dan</firstname>
@@ -21,7 +21,7 @@
             </node>
             <node>
                 <node-name>Customizable Ranking</node-name>
-                <description/>
+                <description>Ability to change search ranking based on context.</description>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
             </node>
@@ -42,7 +42,82 @@
             </node>
         </node>
         <node>
+            <node-name>Importability</node-name>
+            <node>
+                <node-name>Import XML</node-name>
+                <description>Easy to import XML</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Bulk Import</node-name>
+                <description>Tools do perform bulk import from shell or Apache Ant</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Queryability</node-name>
+            <node>
+                <node-name>XML Query</node-name>
+                <description>Easy to write queries on XML</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Bulk Import</node-name>
+                <description>Tools do perform bulk import from shell or Apache Ant</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Transformability</node-name>
+            <node>
+                <node-name>Easy to transform XML</node-name>
+                <description>Easy to write queries on XML</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Convert to HTML</node-name>
+                <description>Tools do perform bulk import from shell or Apache Ant</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
             <node-name>Affordability</node-name>
+            <node>
+                <node-name>Open Source License</node-name>
+                <description>No license fees.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Standards Based</node-name>
+                <description>Based on XML standards for ease of integration.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Interoperability</node-name>
+            <node>
+                <node-name>Open Source License</node-name>
+                <description>No license fees.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Standards Based</node-name>
+                <description>Based on XML standards for ease of integration.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Sustainability</node-name>
             <node>
                 <node-name>Open Source License</node-name>
                 <description>No license fees.</description>
