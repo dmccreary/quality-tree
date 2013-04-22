@@ -1,0 +1,47 @@
+<quality-tree>
+    <id>5</id>
+    <project-name>Data Warehouse</project-name>
+    <project-description/>
+    <author>
+        <personname>
+            <firstname>Dan</firstname>
+            <surname>McCreary</surname>
+        </personname>
+        <email>dan@danmccreary.com</email>
+        <orgname>Kelly McCreary &amp; Associates</orgname>
+    </author>
+    <quality-attributes>
+        <quality-attribute>
+            <name>Scalability</name>
+            <description>Adding additional nodes to cluster adds liner performance.</description>
+            <quality-attribute2>
+                <name>Autosharding</name>
+                <importance>medium</importance>
+                <difficulty>medium</difficulty>
+                <description/>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Replication</name>
+                <importance>medium</importance>
+                <difficulty>medium</difficulty>
+                <description/>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Agility</name>
+            <description>Ability to rapidly respond to changing business conditions.</description>
+            <quality-attribute2>
+                <name>New elements added.</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>A new data element is added to the system.</description>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>New services</name>
+                <importance>medium</importance>
+                <difficulty>medium</difficulty>
+                <description>Add new data services quickly.</description>
+            </quality-attribute2>
+        </quality-attribute>
+    </quality-attributes>
+</quality-tree>

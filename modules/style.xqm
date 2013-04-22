@@ -10,27 +10,43 @@ declare namespace xf="http://www.w3.org/2002/xforms";
 declare namespace xrx="http://code.google.com/p/xrx";
 declare namespace repo="http://exist-db.org/xquery/repo";
 
-declare variable $style:context := request:get-context-path();
+
 declare variable $style:app-home := '/db/apps/quality-tree';
+(: named application database collections starting with '/db' with no exist prefix or rest in paths :)
+declare variable $style:app-collection := $style:app-home;
+declare variable $style:data-collection := concat($style:app-home, '/data');
+declare variable $style:resources-collection := concat($style:app-home, '/resources');
+declare variable $style:images-collection := concat($style:resources-collection, '/images');
+declare variable $style:css-collection := concat($style:resources-collection, '/css');
+declare variable $style:config-collection := concat($style:app-home, '/config');
+
+declare variable $style:default-config-file-path := concat($style:config-collection, 'default.xml');
+declare variable $style:config := doc($style:default-config-file-path);
+
+declare variable $style:context := request:get-context-path();
+
 declare variable $style:repo-file-path := concat($style:app-home, '/repo.xml');
 declare variable $style:repo-doc := doc($style:repo-file-path)/repo:meta;
+declare variable $style:rest-path-to-app := concat($style:context, '/rest', $style:app-home);
+
+(: these all start with xmldb:exist:// and should be used with the collection and doc functions :)
+declare variable $style:db-path-to-site  := concat('xmldb:exist://',  $style:rest-path-to-app);
+declare variable $style:db-path-to-app  := concat('xmldb:exist://', $style:rest-path-to-app) ;
+declare variable $style:db-path-to-app-data := concat($style:app-home, '/data');
 
 declare variable $style:web-path-to-site := $style:app-home;
 declare variable $style:rest-path-to-site := concat($style:context, '/rest', $style:web-path-to-site);
 declare variable $style:web-path-to-app := style:substring-before-last-slash(style:substring-before-last-slash(substring-after(request:get-uri(), '/rest')));
-declare variable $style:rest-path-to-app := concat($style:context, '/rest', $style:web-path-to-app);
 
-declare variable $style:db-path-to-site  := concat('xmldb:exist://',  $style:web-path-to-site);
-declare variable $style:db-path-to-app  := concat('xmldb:exist://', $style:web-path-to-app) ;
-declare variable $style:db-path-to-app-data := concat($style:app-home, '/data');
 
 declare variable $style:app-id := $style:repo-doc//repo:target/text();
 declare variable $style:app-name := 'Quality Tree';
 
-declare variable $style:site-resources := concat($style:app-home, '/resources');
-declare variable $style:rest-path-to-style-resources := concat($style:context, '/rest', $style:site-resources);
+declare variable $style:site-resources := concat($style:rest-path-to-app, '/resources');
+declare variable $style:rest-path-to-style-resources := concat($style:rest-path-to-app, '/resources');
 declare variable $style:site-images := concat($style:site-resources, '/images');
 declare variable $style:site-scripts := concat($style:site-resources, '/js');
+declare variable $style:site-css := concat($style:site-resources, '/css');
 declare variable $style:rest-path-to-images := concat($style:context, '/rest', $style:site-images);
 
  (: home = 1, apps = 2 :)
@@ -57,7 +73,7 @@ declare function style:header()  as node()*  {
             <span id="logo"><a href="{$style:rest-path-to-site}/index.xq">
             <img src="{$style:rest-path-to-images}/univ-richmond-logo.png" alt="Boatwright Memoria Library"/></a></span>   
             
-            <span id="banner-header-text">Kelly-McCreary &amp; Associates Quality Tree</span>
+            <span id="banner-header-text">Kelly-McCreary &amp; Associates</span>
             
             <!--
             <div id="banner-search">
@@ -103,12 +119,11 @@ declare function style:css($page-type as xs:string)
 as node()+ {
     if ($page-type eq 'xhtml') then 
         (
-            <link rel="stylesheet" href="{$style:rest-path-to-style-resources}/blueprint/screen.css" type="text/css" media="screen, projection" />,
-            <link rel="stylesheet" href="{$style:rest-path-to-style-resources}/blueprint/print.css" type="text/css" media="print" />,<!--[if IE ]><link rel="stylesheet" href="{$style:site-css}/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->,
-            <link rel="stylesheet" href="{$style:rest-path-to-style-resources}/style.css" type="text/css" media="screen, projection" />
+            <link rel="stylesheet" href="{$style:site-css}/bootstrap.min.css" type="text/css" media="screen, projection" />,
+            <link rel="stylesheet" href="{$style:site-css}/site.css" type="text/css" media="screen, projection" />
         )
     else if ($page-type eq 'xforms') then 
-        <link rel="stylesheet" href="{$style:rest-path-to-style-resources}/xforms.css.xq" type="text/css" />
+        <link rel="stylesheet" href="{$style:rest-path-to-style-resources}/css/xforms-css.xq" type="text/css" />
     else ()
 };
 
@@ -167,3 +182,152 @@ declare function style:substring-before-last-slash($arg as xs:string?)  as xs:st
             '$1')
    else ''
  } ;
+ 
+declare function style:edit-controls($id as xs:string) as node() {
+<div class="edit-controls">
+    { (: only put the edit controls in if the user has edit rights auth:has-edit-rights(auth:get-current-user()) :)
+    if ( true() )
+       then (
+           <a href="../edit/edit.xq?id={$id}">Edit</a>,
+           <a href="../edit/delete-confirm.xq?id={$id}">Delete</a>,
+           style:publish-controls($id)
+       ) else ()
+    }
+    <a href="../edit/get-instance.xq?id={$id}">View XML</a>
+</div>
+};
+
+(: This is the edit-controls with params.  It has a second parameter which controls which of the five buttons to display.
+The params string is of the form "vedpx" where:
+
+v: to enable the View button
+e: to enable the Edit button
+d: to enable the Delete button
+p: to enable the Publish button
+x: to enable the "View XML" button.
+
+To enable all five controls call it like this:
+
+   style:edit-controls($id, 'vedpx')
+   
+:)
+declare function style:edit-controls($id as xs:string, $params as xs:string) as node() {
+<div class="edit-controls">
+    {if (contains($params, 'v')) then <a href="../views/view-item.xq?id={$id}">View</a> else () }
+    { (: only put the edit controls in if the user has edit rights auth:has-edit-rights(auth:get-current-user()):)
+    if ( true() )
+       then (
+           if (contains($params, 'e')) then <a href="../edit/edit.xq?id={$id}">Edit</a> else (),
+           if (contains($params, 'd')) then <a href="../edit/delete-confirm.xq?id={$id}">Delete</a> else (),
+           if (contains($params, 'p')) then style:publish-controls($id) else ()
+       ) else ()
+    }
+    {if (contains($params, 'x')) then <a href="../edit/get-instance.xq?id={$id}">View XML</a> else () }
+</div>
+};
+
+(: This line will only appear if the user has a role of publisher :)
+(: note that the style module uses the html namespace so we need to use *: as a prefix to select the null namespace :)
+declare function style:publish-controls($id as xs:string) as node()? {
+
+(: this line assumes that each item in the application collection has a unigue id :)
+let $doc := collection($style:db-path-to-app-data)/*[*:id/text() = $id]
+return
+    (: auth:has-publish-rights(auth:get-current-user()) :)
+    if ( true() )
+       then
+          if ($doc//*:publication-status-code/text() = 'published')
+             then <a href="../scripts/publisher/un-publish-to-web.xq?id={$id}">Un-Publish</a>
+             else <a href="../scripts/publisher/publish-to-web.xq?id={$id}">Publish</a>
+       else ()
+};
+ 
+ declare function style:assemble-form($model as node(), $content as node()+) 
+as node()+ {
+    style:assemble-form((), (), $model, $content, true())
+};
+
+(:~
+    An alternate version of style:assemble-form(), allowing debug mode.
+
+    @param $model an XForms model node
+    @param $content nodes for the body of the page
+    @param $debug boolean to activate XSLTForms debug mode
+    @return properly serialized XHTML+XForms page
+:)
+declare function style:assemble-form($model as node(), $content as node()+, $debug as xs:boolean) 
+as node()+ {
+    style:assemble-form((), (), $model, $content, $debug)
+};
+
+(:~
+    A helper function for style:assemble-form(), with all optional parameters.
+
+    @param $dummy-attributes an optional sequence of attributes to add to the HTML element
+    @param $style an optional style node containing CDATA-encased CSS definitions
+    @param $model an XForms model node
+    @param $content nodes for the body of the page
+    @return properly serialized XHTML+XForms page
+:)
+declare function style:assemble-form($title as xs:string, $dummy-attributes as attribute()*, $style as element(style)*, 
+                                     $model as element(xf:model), $content as node()+)
+as node()+ {
+    style:assemble-form($dummy-attributes, $style, $model, $content, $style:form-debug-default)
+};
+
+(:~
+    A helper function for style:assemble-form(), with all optional parameters.
+
+    @param $title the text node containing the title of the page
+    @param $breadcrumbs the element node containing the breadcrumbs
+    @param $style an optional style node containing CDATA-encased CSS definitions
+    @param $model an XForms model node
+    @param $content nodes for the body of the page
+    @param $dummy-attributes an optional sequence of attributes to add to the HTML element
+    @param $debug boolean to activate XSLTForms debug mode
+    @return properly serialized XHTML+XForms page
+:)
+declare function style:assemble-form(
+        $title as xs:string,
+        $dummy-attributes as attribute()*,
+        $style as node()*, 
+        $model as node(),
+        $content as node()+, 
+        $debug as xs:boolean) 
+as node()+ {
+    util:declare-option('exist:serialize', 'method=xhtml media-type=text/xml indent=yes process-xsl-pi=no')
+    ,
+    processing-instruction xml-stylesheet {concat('type="text/xsl" href="', request:get-context-path(), '/rest', '/db/apps/xsltforms/xsltforms.xsl"')}
+    ,
+    if ($debug) then 
+        processing-instruction xsltforms-options {'debug="no"'}
+    else ()
+    ,
+    <html  
+    xmlns:xf="http://www.w3.org/2002/xforms" 
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:kert="http://kuberam.ro/ns/kert"
+    kert:dummy="dummy"
+    eXSLTFormsDataInstancesViewer="true"
+    >{ $dummy-attributes }
+        <head>
+            
+            <title>{ $title }</title>
+            <link rel="stylesheet" type="text/css" href="edit.css"/>
+            { style:css('xforms') }
+            { $style }
+            { $model }
+        </head>
+        <body>
+            <div class="container">
+                { style:header() } 
+                <div class="inner">
+                { style:breadcrumbs(()) }
+                    <h2>{$title}</h2>
+                    { $content }
+                </div>
+                { style:footer() }
+            </div>
+        </body>
+    </html>
+};

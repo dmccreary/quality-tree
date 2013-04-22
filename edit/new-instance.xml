@@ -1,0 +1,25 @@
+<quality-tree>
+    <id/>
+    <project-name/>
+    <project-description/>
+    <author>
+        <personname>
+            <firstname>Dan</firstname>
+            <surname>McCreary</surname>
+        </personname>
+        <email>dan@danmccreary.com</email>
+        <orgname>Kelly McCreary &amp; Associates</orgname>
+    </author>
+    <quality-attributes>
+        <quality-attribute>
+            <name></name>
+            <description></description>
+            <quality-attribute2>
+                <name></name>
+                <importance></importance>
+                <difficulty></difficulty>
+                <description/>
+            </quality-attribute2>
+        </quality-attribute>
+    </quality-attributes>
+</quality-tree>

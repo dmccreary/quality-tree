@@ -1,0 +1,151 @@
+<quality-tree>
+    <id>4</id>
+    <project-name>Typical Big Data Project</project-name>
+    <author>
+        <personname>
+            <firstname>Dan</firstname>
+            <surname>McCreary</surname>
+        </personname>
+        <email>user@example.com</email>
+        <orgname>Kelly McCreary &amp; Associates</orgname>
+    </author>
+    <description/>
+    <nodes>
+        <node>
+            <node-name>Scalability</node-name>
+            <node>
+                <node-name>Scales to many nodes</node-name>
+                <description>Ability store data on many nodes.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Distributed query</node-name>
+                <description>Move queries to data, not data to queries.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Availability</node-name>
+            <node>
+                <node-name>Fault tolerant</node-name>
+                <description>Ability store data on many nodes.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Autosharding</node-name>
+                <description>Data automatically migrates to new nodes.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Findability</node-name>
+            <node>
+                <node-name>Fulltext Search</node-name>
+                <description>Ability to perform serch on natural language text.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Customizable Ranking</node-name>
+                <description>Ability to change search ranking based on context.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        
+        <node>
+            <node-name>Schemaless</node-name>
+            <node>
+                <node-name>High variability</node-name>
+                <description>Easy to import high variability data</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>No modeling</node-name>
+                <description>Easy to import data before modeling</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Queryability</node-name>
+            <node>
+                <node-name>Expressivity</node-name>
+                <description>Query any attribute of data</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Correct query language</node-name>
+                <description>Query language fits the problem space</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Transformability</node-name>
+            <node>
+                <node-name>Ease of transformation</node-name>
+                <description>Easy to write transforms</description>
+                <importance>high</importance>
+                <difficulty>medium</difficulty>
+            </node>
+            <node>
+                <node-name>Transform scalability</node-name>
+                <description>Transforms distributed over many servers</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Affordability</node-name>
+            <node>
+                <node-name>Open Source License</node-name>
+                <description>No license fees.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </node>
+            <node>
+                <node-name>Standards Based</node-name>
+                <description>Based on standards to reuse skills and tools.</description>
+                <importance>medium</importance>
+                <difficulty>high</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Interoperability</node-name>
+            <node>
+                <node-name>Integrates with reporting</node-name>
+                <description>Works with standardized reporting systems.</description>
+                <importance>medium</importance>
+                <difficulty>high</difficulty>
+            </node>
+            <node>
+                <node-name>Standards Based</node-name>
+                <description>Based on standards for ease of portability.</description>
+                <importance>medium</importance>
+                <difficulty>high</difficulty>
+            </node>
+        </node>
+        <node>
+            <node-name>Security</node-name>
+            <node>
+                <node-name>Role based access control</node-name>
+                <description>Secure any document based on role</description>
+                <importance>high</importance>
+                <difficulty>high</difficulty>
+            </node>
+            <node>
+                <node-name>Audit</node-name>
+                <description>Detailed audit reporting</description>
+                <importance>high</importance>
+                <difficulty>high</difficulty>
+            </node>
+        </node>
+    </nodes>
+</quality-tree>

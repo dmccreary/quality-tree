@@ -7,11 +7,14 @@ let $trees := $qt:all-trees
 
 let $content :=
 <div class="content">
-   <table>
+   <table class="table table-striped table-bordered">
       <thead>
          <tr>
-            <th>Name</th>
+            <th>Project Name</th>
             <th>Last Modified</th>
+            <th>View</th>
+            <th>SVG</th>
+            <th>Edit</th>
          </tr>
       </thead>
       <tbody>
@@ -22,8 +25,10 @@ let $content :=
          return
             <tr>
                <th><a href="view-tree.xq?id={$id}">{$tree/project-name/text()}</a></th>
-               <th><a href="view-tree-svg.xq?id={$id}">SVG</a></th>
                <td>{$last-modified}</td>
+               <th><a href="view-tree.xq?id={$id}">View</a></th>
+               <th><a href="view-tree-svg.xq?id={$id}">SVG</a></th>
+               <th><a href="../edit/edit.xq?id={$id}">Edit</a></th>
             </tr>
          }
        </tbody>
