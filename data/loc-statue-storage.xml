@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <quality-tree>
-    <id>4</id>
-    <project-name>Typical Big Data Project</project-name>
-    <project-description>Requirements for a typical Big Data project that has a strong focus on scalability and availability</project-description>
+    <id>1</id>
+    <project-name>Legislative Statute Archive for Library of Congress</project-name>
+    <project-description>Find state statues stored in XML formats.</project-description>
     <author>
         <personname>
             <firstname>Dan</firstname>
             <surname>McCreary</surname>
         </personname>
-        <email>user@examplecom</email>
+        <email>dan@danmccreary.com</email>
         <orgname>Kelly McCreary &amp; Associates</orgname>
     </author>
     <quality-attributes>
+        <quality-attribute>
+            <name>Findability</name>
+            <quality-attribute2>
+                <name>Fulltext Search</name>
+                <description>Ability to perform search on natural language text.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Customizable Ranking</name>
+                <description>Ability to change search ranking based on context.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
         <quality-attribute>
             <name>Scalability</name>
             <quality-attribute2>
@@ -24,50 +39,20 @@
                 <name>Distributed query</name>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
-                <description>Move queries to data, not data to queries</description>
+                <description>Ability to execute queries on many nodes.</description>
             </quality-attribute2>
         </quality-attribute>
         <quality-attribute>
-            <name>Availability</name>
+            <name>Importability</name>
             <quality-attribute2>
-                <name>Fault tolerant</name>
-                <importance>high</importance>
-                <difficulty>low</difficulty>
-                <description>Ability store data on many nodes</description>
-            </quality-attribute2>
-            <quality-attribute2>
-                <name>Autosharding</name>
-                <description>Data automatically migrates to new nodes</description>
-                <importance>high</importance>
-                <difficulty>low</difficulty>
-            </quality-attribute2>
-        </quality-attribute>
-        <quality-attribute>
-            <name>Findability</name>
-            <quality-attribute2>
-                <name>Fulltext Search</name>
-                <description>Ability to perform serch on natural language text</description>
+                <name>Import XML</name>
+                <description>Easy to import XML</description>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
             </quality-attribute2>
             <quality-attribute2>
-                <name>Customizable Ranking</name>
-                <description>Ability to change search ranking based on context</description>
-                <importance>high</importance>
-                <difficulty>low</difficulty>
-            </quality-attribute2>
-        </quality-attribute>
-        <quality-attribute>
-            <name>Schemaless</name>
-            <quality-attribute2>
-                <name>High variability</name>
-                <description>Easy to import high variability data</description>
-                <importance>high</importance>
-                <difficulty>low</difficulty>
-            </quality-attribute2>
-            <quality-attribute2>
-                <name>No modeling</name>
-                <description>Easy to import data before modeling</description>
+                <name>Bulk Import</name>
+                <description>Tools do perform bulk import from shell or Apache Ant</description>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
             </quality-attribute2>
@@ -75,14 +60,14 @@
         <quality-attribute>
             <name>Queryability</name>
             <quality-attribute2>
-                <name>Expressivity</name>
-                <description>Query any attribute of data</description>
+                <name>XML Query</name>
+                <description>Easy to write queries on XML</description>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
             </quality-attribute2>
             <quality-attribute2>
-                <name>Correct query language</name>
-                <description>Query language fits the problem space</description>
+                <name>Bulk Import</name>
+                <description>Tools do perform bulk import from shell or Apache Ant</description>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
             </quality-attribute2>
@@ -90,14 +75,14 @@
         <quality-attribute>
             <name>Transformability</name>
             <quality-attribute2>
-                <name>Ease of transformation</name>
-                <description>Easy to write transforms</description>
+                <name>Easy to transform XML</name>
+                <description>Easy to write queries on XML</description>
                 <importance>high</importance>
-                <difficulty>medium</difficulty>
+                <difficulty>low</difficulty>
             </quality-attribute2>
             <quality-attribute2>
-                <name>Transform scalability</name>
-                <description>Transforms distributed over many servers</description>
+                <name>Convert to HTML/PDF</name>
+                <description>Tools do transform XML to HTML and PDF</description>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
             </quality-attribute2>
@@ -106,32 +91,47 @@
             <name>Affordability</name>
             <quality-attribute2>
                 <name>Open Source License</name>
-                <description>No license fees</description>
+                <description>No license fees.</description>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
             </quality-attribute2>
             <quality-attribute2>
                 <name>Standards Based</name>
-                <description>Based on standards to reuse skills and tools</description>
-                <importance>medium</importance>
-                <difficulty>high</difficulty>
+                <description>Based on XML standards for ease of integration.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
             </quality-attribute2>
         </quality-attribute>
         <quality-attribute>
             <name>Interoperability</name>
             <quality-attribute2>
-                <name>Integrates with reporting</name>
-                <description>Works with standardized reporting systems</description>
-                <importance>medium</importance>
-                <difficulty>high</difficulty>
+                <name>REST services</name>
+                <description>Create REST API web services</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Search services</name>
+                <description>Create easy to use search services</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute2>
+            <name>Sustainability</name>
+            <quality-attribute2>
+                <name>Open Source License</name>
+                <description>No license fees.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
             </quality-attribute2>
             <quality-attribute2>
                 <name>Standards Based</name>
-                <description>Based on standards for ease of portability</description>
-                <importance>medium</importance>
-                <difficulty>high</difficulty>
+                <description>Based on XML standards for ease of integration.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
             </quality-attribute2>
-        </quality-attribute>
+        </quality-attribute2>
         <quality-attribute>
             <name>Security</name>
             <quality-attribute2>
@@ -143,8 +143,8 @@
             <quality-attribute2>
                 <name>Audit</name>
                 <description>Detailed audit reporting</description>
-                <importance>high</importance>
-                <difficulty>high</difficulty>
+                <importance>low</importance>
+                <difficulty>low</difficulty>
             </quality-attribute2>
         </quality-attribute>
     </quality-attributes>

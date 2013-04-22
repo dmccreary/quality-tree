@@ -51,12 +51,14 @@ let $style :=
         }
 
         .uri .xforms-value {width: 90ex;}
-        .organization-name .xforms-value {width: 40ex;}
+        .project-name .xforms-value {width: 80%;}
+        
         .project-description textarea {
             height: 10ex;
             /* this makes the width of the project definition grow with screen size on window resize */
             width:80%;
         }
+        .organization-name .xforms-value {width: 40ex;}
      
      fieldset {
         background-color: lavender;
@@ -128,6 +130,7 @@ let $model :=
         <xf:bind nodeset="project-name" required="true()"/>
         <xf:bind nodeset="author/personname/firstname" required="true()"/>
         <xf:bind nodeset="author/personname/surname" required="true()"/>
+        <xf:bind nodeset="quality-attributes/quality-attribute/name" required="true()"/>
         
         <!-- <xf:bind id="delete-category-trigger" nodeset="instance('views')/delete-category-trigger" 
             relevant="instance('save-data')/category[2]"/> -->
@@ -160,7 +163,7 @@ let $content :=
             
            <fieldset class="layout-vertical">
               <legend>Project</legend>
-                <xf:input ref="project-name">
+                <xf:input ref="project-name" class="project-name">
                     <xf:label>Name:</xf:label>
                 </xf:input>
                 <xf:textarea ref="project-description" class="large project-description">

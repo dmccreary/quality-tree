@@ -3,9 +3,10 @@ body {
    font-family: arial, helvetica, sans-serif;
    }
 
-table {border-collapse: collapse}
-table thead tr {background-color: silver; border: solid black 1px;}
-table thead tr th {border: solid gray 1px;}
+/* for table headers within a repeat */
+table.repeat {border-collapse: collapse}
+table.repeat thead tr {background-color: silver; border: solid black 1px;}
+table.repeat thead tr th {border: solid gray 1px;}
 
 #banner {
     font-size: 10pt;
@@ -41,7 +42,7 @@ table thead tr th {border: solid gray 1px;}
     padding-right: 20px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    margin: 5px;
+    margin: auto;
 }
 
 .debug {background: khaki;}
@@ -67,7 +68,7 @@ table thead tr th {border: solid gray 1px;}
 }
 
 /* Color current item yellow. */
-.xforms-repeat-item-selected {background-color: lavender;}
+.xforms-repeat-item-selected {background-color: LightGreen;}
 
 .layout-vertical .xforms-control .xforms-label {
     /* this may not work in older browsers, but the only way to adjust the width of an inline region*/
@@ -75,6 +76,11 @@ table thead tr th {border: solid gray 1px;}
     text-align: right;
     min-width: 15ex;
     /*  border: solid green 1px; */
+}
+
+.xforms-value {
+    margin-left: 2px;
+    padding-left: 2px;
 }
 
 .xforms-required .xforms-value {

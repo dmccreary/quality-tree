@@ -213,7 +213,7 @@ To enable all five controls call it like this:
 :)
 declare function style:edit-controls($id as xs:string, $params as xs:string) as node() {
 <div class="edit-controls">
-    {if (contains($params, 'v')) then <a href="../views/view-item.xq?id={$id}">View</a> else () }
+    {if (contains($params, 'v')) then <a href="../views/view-tree.xq?id={$id}">View</a> else () }
     { (: only put the edit controls in if the user has edit rights auth:has-edit-rights(auth:get-current-user()):)
     if ( true() )
        then (

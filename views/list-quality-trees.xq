@@ -24,7 +24,7 @@ let $content :=
          let $last-modified := xmldb:last-modified($style:db-path-to-app-data, $document-name)
          return
             <tr>
-               <th><a href="view-tree.xq?id={$id}">{$tree/project-name/text()}</a></th>
+               <th><a href="view-tree.xq?id={$id}">{$tree/project-name/text()}</a> {' '} ({$id})</th>
                <td>{$last-modified}</td>
                <th><a href="view-tree.xq?id={$id}">View</a></th>
                <th><a href="view-tree-svg.xq?id={$id}">SVG</a></th>

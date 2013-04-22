@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <quality-tree>
     <id>5</id>
     <project-name>Data Warehouse</project-name>
-    <project-description/>
+    <project-description>Typical requirements for a data warehouse where fast reporting on historical data is critical and fit for OLAP cube.</project-description>
     <author>
         <personname>
             <firstname>Dan</firstname>
@@ -12,35 +13,51 @@
     </author>
     <quality-attributes>
         <quality-attribute>
-            <name>Scalability</name>
-            <description>Adding additional nodes to cluster adds liner performance.</description>
+            <name>Aggregate Reporting</name>
+            <description>Allow non-techies to analyze large data sets using GUI.</description>
             <quality-attribute2>
-                <name>Autosharding</name>
-                <importance>medium</importance>
-                <difficulty>medium</difficulty>
-                <description/>
+                <name>Fast reports</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Summarize billions of facts in under 1/4 second</description>
             </quality-attribute2>
             <quality-attribute2>
-                <name>Replication</name>
-                <importance>medium</importance>
-                <difficulty>medium</difficulty>
-                <description/>
+                <name>Slice and dice tools</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Users can filter and categorize facts with GUI</description>
             </quality-attribute2>
         </quality-attribute>
         <quality-attribute>
             <name>Agility</name>
-            <description>Ability to rapidly respond to changing business conditions.</description>
+            <description>Ability to rapidly view new data.</description>
             <quality-attribute2>
-                <name>New elements added.</name>
+                <name>New records added</name>
                 <importance>high</importance>
                 <difficulty>low</difficulty>
-                <description>A new data element is added to the system.</description>
+                <description>New facts are added to the system</description>
             </quality-attribute2>
             <quality-attribute2>
-                <name>New services</name>
-                <importance>medium</importance>
-                <difficulty>medium</difficulty>
-                <description>Add new data services quickly.</description>
+                <name>New reports</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>User can create and save reports</description>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Scalability</name>
+            <description>Scale to millions or billions of facts</description>
+            <quality-attribute2>
+                <name>New fact added in bulk</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>New facts are added to the system</description>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Aggregates recomputed</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Aggregate data updated as facts are added</description>
             </quality-attribute2>
         </quality-attribute>
     </quality-attributes>

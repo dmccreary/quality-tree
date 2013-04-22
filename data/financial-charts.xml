@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <quality-tree>
     <id>2</id>
     <project-name>Chart Manager</project-name>
@@ -11,7 +12,6 @@
     </author>
     <description>Sample Quality Attribute Utility Tree for financial chart management in document store.</description>
     <quality-attributes>
-        
         <quality-attribute>
             <name>Agility</name>
             <quality-attribute2>
@@ -27,7 +27,6 @@
                 <difficulty>low</difficulty>
             </quality-attribute2>
         </quality-attribute>
-        
         <quality-attribute>
             <name>Findability</name>
             <quality-attribute2>
@@ -43,7 +42,6 @@
                 <difficulty>low</difficulty>
             </quality-attribute2>
         </quality-attribute>
-        
         <quality-attribute>
             <name>Transformability</name>
             <quality-attribute2>
@@ -59,8 +57,6 @@
                 <description>Based on XML standards for ease of integration.</description>
             </quality-attribute2>
         </quality-attribute>
-        
-        
         <quality-attribute>
             <name>Affordability</name>
             <quality-attribute2>
@@ -76,7 +72,6 @@
                 <description>Based on XML standards for ease of integration.</description>
             </quality-attribute2>
         </quality-attribute>
-        
         <quality-attribute>
             <name>Security</name>
             <quality-attribute2>

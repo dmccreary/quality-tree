@@ -22,8 +22,8 @@
         <value>lightblue</value>
     </item>
     <item>
-        <label>Indigo</label>
-        <value>MediumOrchid</value>
+        <label>Thistle</label>
+        <value>thistle</value>
     </item>
     <item>
         <label>Violet</label>
@@ -35,6 +35,6 @@
     </item>
     <item>
         <label>Gray</label>
-        <value>gray</value>
+        <value>#DDD</value>
     </item>
 </code-table>
