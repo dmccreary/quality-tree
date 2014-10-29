@@ -10,12 +10,13 @@ declare namespace xf="http://www.w3.org/2002/xforms";
 declare namespace xrx="http://code.google.com/p/xrx";
 declare namespace repo="http://exist-db.org/xquery/repo";
 
-
-declare variable $style:app-home := '/db/apps/quality-tree';
+declare variable $style:app-id := 'quality-tree';
+declare variable $style:app-home := concat('/db/apps/', $style:app-id);
 (: named application database collections starting with '/db' with no exist prefix or rest in paths :)
 declare variable $style:app-collection := $style:app-home;
 declare variable $style:data-collection := concat($style:app-home, '/data');
 declare variable $style:resources-collection := concat($style:app-home, '/resources');
+
 declare variable $style:images-collection := concat($style:resources-collection, '/images');
 declare variable $style:css-collection := concat($style:resources-collection, '/css');
 declare variable $style:config-collection := concat($style:app-home, '/config');
@@ -25,25 +26,25 @@ declare variable $style:config := doc($style:default-config-file-path);
 
 declare variable $style:context := request:get-context-path();
 
+
 declare variable $style:repo-file-path := concat($style:app-home, '/repo.xml');
 declare variable $style:repo-doc := doc($style:repo-file-path)/repo:meta;
-declare variable $style:rest-path-to-app := concat($style:context, '/rest', $style:app-home);
 
 (: these all start with xmldb:exist:// and should be used with the collection and doc functions :)
-declare variable $style:db-path-to-site  := concat('xmldb:exist://',  $style:rest-path-to-app);
-declare variable $style:db-path-to-app  := concat('xmldb:exist://', $style:rest-path-to-app) ;
+declare variable $style:db-path-to-site  := concat('/db/apps', $style:app-id);
+declare variable $style:db-path-to-app  := concat('/db/apps', $style:app-id);
 declare variable $style:db-path-to-app-data := concat($style:app-home, '/data');
 
-declare variable $style:web-path-to-site := $style:app-home;
-declare variable $style:rest-path-to-site := concat($style:context, '/rest', $style:web-path-to-site);
-declare variable $style:web-path-to-app := style:substring-before-last-slash(style:substring-before-last-slash(substring-after(request:get-uri(), '/rest')));
+declare variable $style:web-app := concat($style:context, '/apps/', $style:app-id);
+declare variable $style:web-path-to-site := concat($style:context, '/apps/', $style:app-id);
+declare variable $style:web-resources := concat($style:web-app, '/resources');
+declare variable $style:web-images := concat($style:web-resources, '/images');
+declare variable $style:web-css := concat($style:web-resources, '/css');
 
-
-declare variable $style:app-id := $style:repo-doc//repo:target/text();
 declare variable $style:app-name := 'Quality Tree';
 
-declare variable $style:site-resources := concat($style:rest-path-to-app, '/resources');
-declare variable $style:rest-path-to-style-resources := concat($style:rest-path-to-app, '/resources');
+declare variable $style:site-resources := concat($style:web-app, '/resources');
+
 declare variable $style:site-images := concat($style:site-resources, '/images');
 declare variable $style:site-scripts := concat($style:site-resources, '/js');
 declare variable $style:site-css := concat($style:site-resources, '/css');
@@ -66,18 +67,18 @@ declare function style:header()  as node()*  {
                if ($current-user eq 'guest')
                   then ()
                   else
-                     <a href="{$style:web-path-to-app}/admin/user-prefs.xq">{concat("Logged in as user: ", $current-user)}</a>
+                     <a href="{$style:web-app}/admin/user-prefs.xq">{concat("Logged in as user: ", $current-user)}</a>
         } </div>
        
         <div id="banner">
-            <span id="logo"><a href="{$style:rest-path-to-site}/index.xq">
-            <img src="{$style:rest-path-to-images}/univ-richmond-logo.png" alt="Boatwright Memoria Library"/></a></span>   
+            <span id="logo"><a href="{$style:web-path-to-site}/index.xq">
+            <img src="{$style:web-images}/kma-logo.png" alt="Kelly-McCreary &amp; Associates"/></a></span>   
             
             <span id="banner-header-text">Kelly-McCreary &amp; Associates</span>
             
             <!--
             <div id="banner-search">
-                <form method="GET" action="{$style:rest-path-to-site}/apps/search/search.xq">
+                <form method="GET" action="{$style:web-app}/search/search.xq">
                     <strong>Search:</strong>
                     <input name="q" type="text"/>
                     <input type="submit" value="Search"/>
@@ -101,13 +102,13 @@ declare function style:footer()  as node()*  {
 
 declare function style:breadcrumbs($suffix as node()*) as node() {
    <div class="breadcrumbs">
-      <a href="{$style:rest-path-to-site}/index.xq">Home</a>
+      <a href="{$style:web-path-to-site}/index.xq">Home</a>
       
-      &gt; <a href="{$style:rest-path-to-site}/apps/index.xq">Apps</a>
+      &gt; <a href="{$style:web-path-to-site}/apps/index.xq">Apps</a>
       
       {if (style:web-depth-in-site() > 2) then
       (' &gt; ',
-      <a href="{$style:rest-path-to-site}/apps/{$style:app-id}/index.xq">Quality Tree</a>
+      <a href="{$style:web-path-to-site}/apps/{$style:app-id}/index.xq">Quality Tree</a>
       )
       else ()}
       
@@ -123,7 +124,7 @@ as node()+ {
             <link rel="stylesheet" href="{$style:site-css}/site.css" type="text/css" media="screen, projection" />
         )
     else if ($page-type eq 'xforms') then 
-        <link rel="stylesheet" href="{$style:rest-path-to-style-resources}/css/xforms-css.xq" type="text/css" />
+        <link rel="stylesheet" href="{$style:web-resources}/css/xforms-css.xq" type="text/css" />
     else ()
 };
 

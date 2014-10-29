@@ -39,12 +39,14 @@
             <fileset dir="${git-master}"/> 
         </xdb:store>
         <!-- make the controller.xql file executable -->
-        <xdb:chmod uri="${local-uri}/apps/quality-tree" resource="controller.xql" permissions="group=+execute,other=+execute"/>  
+        <xdb:chmod uri="${app-collection-uri}" resource="controller.xql" permissions="group=+execute,other=+execute"
+            user="${local-user}" password="${local-password}"/>  
     </target>
     
     <target name="add-execute"  description="Make the controller.xql file executable.">
         <!-- make the controller.xql file executable -->
-        <xdb:chmod uri="${local-uri}/apps/quality-tree" resource="controller.xql" permissions="group=+execute,other=+execute"/>
+        <xdb:chmod uri="${app-collection-uri}" resource="controller.xql" permissions="group=+execute,other=+execute"
+            user="${local-user}" password="${local-password}"/>
     </target>
     
     <target name="update-xsltforms">
