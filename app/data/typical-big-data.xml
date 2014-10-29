@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quality-tree>
+    <id>4</id>
+    <project-name>Typical Big Data Project</project-name>
+    <project-description>Requirements for a typical Big Data project that has a strong focus on scalability and availability</project-description>
+    <author>
+        <personname>
+            <firstname>Dan</firstname>
+            <surname>McCreary</surname>
+        </personname>
+        <email>user@examplecom</email>
+        <orgname>Kelly McCreary &amp; Associates</orgname>
+    </author>
+    <quality-attributes>
+        <quality-attribute>
+            <name>Scalability</name>
+            <quality-attribute2>
+                <name>Scales to many nodes</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Ability store data on many nodes</description>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Distributed query</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Move queries to data, not data to queries</description>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Availability</name>
+            <quality-attribute2>
+                <name>Fault tolerant</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Ability store data on many nodes</description>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Autosharding</name>
+                <description>Data automatically migrates to new nodes</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Findability</name>
+            <quality-attribute2>
+                <name>Fulltext Search</name>
+                <description>Ability to perform serch on natural language text</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Customizable Ranking</name>
+                <description>Ability to change search ranking based on context</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Schemaless</name>
+            <quality-attribute2>
+                <name>High variability</name>
+                <description>Easy to import high variability data</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>No modeling</name>
+                <description>Easy to import data before modeling</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Queryability</name>
+            <quality-attribute2>
+                <name>Expressivity</name>
+                <description>Query any attribute of data</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Correct query language</name>
+                <description>Query language fits the problem space</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Transformability</name>
+            <quality-attribute2>
+                <name>Ease of transformation</name>
+                <description>Easy to write transforms</description>
+                <importance>high</importance>
+                <difficulty>medium</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Transform scalability</name>
+                <description>Transforms distributed over many servers</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Affordability</name>
+            <quality-attribute2>
+                <name>Open Source License</name>
+                <description>No license fees</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Standards Based</name>
+                <description>Based on standards to reuse skills and tools</description>
+                <importance>medium</importance>
+                <difficulty>high</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Interoperability</name>
+            <quality-attribute2>
+                <name>Integrates with reporting</name>
+                <description>Works with standardized reporting systems</description>
+                <importance>medium</importance>
+                <difficulty>high</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Standards Based</name>
+                <description>Based on standards for ease of portability</description>
+                <importance>medium</importance>
+                <difficulty>high</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Security</name>
+            <quality-attribute2>
+                <name>Role based access control</name>
+                <description>Secure any document based on role</description>
+                <importance>high</importance>
+                <difficulty>high</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Audit</name>
+                <description>Detailed audit reporting</description>
+                <importance>high</importance>
+                <difficulty>high</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+    </quality-attributes>
+</quality-tree>

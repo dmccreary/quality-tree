@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quality-tree>
+    <id>2</id>
+    <project-name>Chart Manager</project-name>
+    <author>
+        <personname>
+            <firstname>Dan</firstname>
+            <surname>McCreary</surname>
+        </personname>
+        <email>user@example.com</email>
+        <orgname>Kelly McCreary &amp; Associates</orgname>
+    </author>
+    <description>Sample Quality Attribute Utility Tree for financial chart management in document store.</description>
+    <quality-attributes>
+        <quality-attribute>
+            <name>Agility</name>
+            <quality-attribute2>
+                <name>Add elements</name>
+                <description>Ability for non-progammers to add elements</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Modify transforms</name>
+                <description>Allow non-progammers to modify transforms</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Findability</name>
+            <quality-attribute2>
+                <name>Fulltext Search</name>
+                <description>Ability to perform search on natural language text.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Customizable Ranking</name>
+                <description>Be able to change ranking based on context.</description>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Transformability</name>
+            <quality-attribute2>
+                <name>Transform XML</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Ability to transform XML into other formats.</description>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Standards Based</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Based on XML standards for ease of integration.</description>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Affordability</name>
+            <quality-attribute2>
+                <name>Open Source License</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>No license fees.</description>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Standards Based</name>
+                <importance>high</importance>
+                <difficulty>low</difficulty>
+                <description>Based on XML standards for ease of integration.</description>
+            </quality-attribute2>
+        </quality-attribute>
+        <quality-attribute>
+            <name>Security</name>
+            <quality-attribute2>
+                <name>Role based access control</name>
+                <importance>high</importance>
+                <difficulty>high</difficulty>
+                <description>Secure any document based on role</description>
+            </quality-attribute2>
+            <quality-attribute2>
+                <name>Audit</name>
+                <importance>high</importance>
+                <difficulty>high</difficulty>
+                <description>Detailed audit reporting</description>
+            </quality-attribute2>
+        </quality-attribute>
+    </quality-attributes>
+</quality-tree>
